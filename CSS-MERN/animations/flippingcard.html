@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flipping Card Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #1e1e2f;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      width: 300px;
+      height: 200px;
+      perspective: 1000px;
+    }
+
+    .cardInner {
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .card:hover .cardInner {
+      transform: rotateY(180deg);
+    }
+
+    .cardFace {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .cardFront {
+      background-color: #3498db;
+    }
+
+    .cardBack {
+      background-color: #2ecc71;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="cardInner">
+      <div class="cardFace cardFront">Front Side</div>
+      <div class="cardFace cardBack">Back Side</div>
+    </div>
+  </div>
+</body>
+</html>

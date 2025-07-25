@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Typing Effect</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .typing-text {
+      font-size: 28px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      border-right: 3px solid #00ffcc;
+      animation: typing 4s steps(25, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to   { width: 25ch } /* 25 characters in the sentence */
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div class="typing-text">Welcome to CSS Animation!</div>
+</body>
+</html>
