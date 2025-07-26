@@ -13,12 +13,12 @@ console.log(a,b,c,d,e,f,f.name,f.age)
 
 // ============================Arrays=================================
 
-let a = [1, 2, 3, 4, 5]
-let b = ["Ali", "Ahmad", "Fatima"]
-console.log(a, b);
-a.pop() // removes the last element from the array
-b.push("Zainab") // adds an element to the end of the array
-console.log(a,b);
+let z = [1, 2, 3, 4, 5]
+let x = ["Ali", "Ahmad", "Fatima"]
+console.log(z, x);
+z.pop() // removes the last element from the array
+x.push("Zainab") // adds an element to the end of the array
+console.log(z,x);
 
 // ============================loops=================================
 
