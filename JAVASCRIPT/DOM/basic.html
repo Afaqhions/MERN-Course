@@ -7,7 +7,7 @@
 </head>
 <body>
     <p id="data"></p>
-     <form>
+     <!-- <form>
         <label>Name:</label>
         <input type="text" id="name" placeholder="Enter your name">
         <br><br>
@@ -15,29 +15,36 @@
         <input type="number" id="phone" placeholder="Enter your phone number">
         <br><br>
         <button type="button">Submit</button>
-     </form>
+     </form> -->
+    <button onclick="alert('Clicked!')">On Click</button>
+    <button onmouseover="alert('Clicked!')">On Mouse Over</button>
+
 </body>
 <script>
-    // Addinf data & styling using JS
-    let paraData = document.getElementById("data")
-    paraData.innerHTML = "Welcome to the DOM Manipulation with JavaScript!";
-    paraData.style.color = "blue";
-    paraData.style.fontSize = "20px";
-    let submitButton = document.querySelector("button");
-    submitButton.addEventListener('click', ()=>{
-        console.log("Clicked!");
-        let nameInput = document.getElementById("name").value;
-        let phoneNo = document.getElementById("phone").value;
-        if (nameInput === "" || phoneNo === "") {
-            alert("Please fill in all fields.");
-        }
-        if (isNaN(phoneNo)|| phoneNo.length < 11 || phoneNo.length > 11) {
-            alert("Please enter a valid phone number.");
-            return;
-        }
-        else{
-            alert(`Name: ${nameInput}\nPhone Number: ${phoneNo}`);
-        }
-    })
+    let para = document.getElementById("data");
+    para.innerHTML = "Welcome JavaScript!";
+    para.style.color = "red";
+    para.style.fontSize = "20px";
+    // // Addinf data & styling using JS
+    // let paraData = document.getElementById("data")
+    // paraData.innerHTML = "Welcome to the DOM Manipulation with JavaScript!";
+    // paraData.style.color = "blue";
+    // paraData.style.fontSize = "20px";
+    // let submitButton = document.querySelector("button");
+    // submitButton.addEventListener('click', ()=>{
+    //     console.log("Clicked!");
+    //     let nameInput = document.getElementById("name").value;
+    //     let phoneNo = document.getElementById("phone").value;
+    //     if (nameInput === "" || phoneNo === "") {
+    //         alert("Please fill in all fields.");
+    //     }
+    //     if (isNaN(phoneNo)|| phoneNo.length < 11 || phoneNo.length > 11) {
+    //         alert("Please enter a valid phone number.");
+    //         return;
+    //     }
+    //     else{
+    //         alert(`Name: ${nameInput}\nPhone Number: ${phoneNo}`);
+    //     }
+    // })
 </script>
 </html>
