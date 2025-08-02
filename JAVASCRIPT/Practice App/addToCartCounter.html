@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add to Cart Counter</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 100px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 24px;
+      margin: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🛒 Cart</h1>
+  <p id="cartCount">Items in cart: 0</p>
+  <button onclick="addToCartP()">+</button>
+  <button>Add to Cart</button>
+  <button onclick="addToCartM()">-</button>
+
+  <script>
+    let count = 0;
+
+    function addToCartP() {
+      count = count + 1; // increase count
+      document.getElementById("cartCount").innerText = "Items in cart: " + count;
+    }
+     function addToCartM() {
+      count = count - 1; // increase count
+      document.getElementById("cartCount").innerText = "Items in cart: " + count;
+    }
+  </script>
+
+</body>
+</html>

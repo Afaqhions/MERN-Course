@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive Navbar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #0d3b66;
+      color: white;
+      position: relative;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #f4d35e;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        background-color: #0d3b66;
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    #count {
+      font-size: 48px;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .increase { background-color: #28a745; color: white; }
+    .decrease { background-color: #dc3545; color: white; }
+    .reset { background-color: #ffc107; color: black; }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Projects</div>
+    <ul id="navLinks">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./tasbih.html">Tasbih</a></li>
+      <li><a href="./addToCartCounter.html">Add To Cart Counter</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+  <div>
+     <h1>Counter App</h1>
+  <div id="count">0</div>
+
+  <div class="buttons">
+    <button class="decrease" onclick="decrease()">-</button>
+    <button class="reset" onclick="reset()">Reset</button>
+    <button class="increase" onclick="increase()">+</button>
+  </div>
+  </div>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
+    }
+    let count = 0;
+
+    function updateDisplay() {
+      document.getElementById("count").innerText = count;
+    }
+
+    function increase() {
+      count++;
+      updateDisplay();
+    }
+
+    function decrease() {
+      count--;
+      updateDisplay();
+    }
+
+    function reset() {
+      count = 0;
+      updateDisplay();
+    }
+  </script>
+
+</body>
+</html>
