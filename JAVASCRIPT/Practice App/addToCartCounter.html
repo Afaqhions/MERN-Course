@@ -1,57 +1,180 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Add to Cart Counter</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: sans-serif;
-      margin-top: 100px;
-    }
+  <head>
+    <title>Add to Cart Counter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
 
-    h1 {
-      font-size: 40px;
-    }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #0d3b66;
+        color: white;
+        position: relative;
+      }
 
-    p {
-      font-size: 24px;
-      margin: 20px;
-    }
+      .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
 
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: green;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
+      .navbar ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
 
-    button:hover {
-      background-color: darkgreen;
-    }
-  </style>
-</head>
-<body>
+      .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
 
-  <h1>🛒 Cart</h1>
-  <p id="cartCount">Items in cart: 0</p>
-  <button onclick="addToCartP()">+</button>
-  <button>Add to Cart</button>
-  <button onclick="addToCartM()">-</button>
+      .navbar ul li a:hover {
+        color: #f4d35e;
+      }
 
-  <script>
-    let count = 0;
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
 
-    function addToCartP() {
-      count = count + 1; // increase count
-      document.getElementById("cartCount").innerText = "Items in cart: " + count;
-    }
-     function addToCartM() {
-      count = count - 1; // increase count
-      document.getElementById("cartCount").innerText = "Items in cart: " + count;
-    }
-  </script>
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+      }
 
-</body>
+      @media (max-width: 768px) {
+        .navbar ul {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 30px;
+          background-color: #0d3b66;
+          width: 200px;
+          padding: 10px;
+          border-radius: 5px;
+        }
+
+        .navbar ul.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 24px;
+        margin: 20px;
+      }
+
+      .container {
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Projects</div>
+      <ul id="navLinks">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./tasbih.html">Tasbih</a></li>
+        <li><a href="./addToCartCounter.html">Add To Cart Counter</a></li>
+        <li><a href="./contactPage.html">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>🛒 Cart</h1>
+      <p id="message"></p>
+      <p id="cartCount">Items in cart: 0</p>
+      <div class="btns">
+        <button onclick="addToCartP()">+</button>
+        <button onclick="addCart()">Add to Cart</button>
+        <button onclick="addToCartM()">-</button>
+      </div>
+    </div>
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("active");
+      }
+
+      let addCart = () => {
+        if (count <= 0) {
+          document.getElementById("message").innerText =
+            "No items to add to cart!";
+          setTimeout(() => {
+            document.getElementById("message").innerText = "";
+            return; // exit if count is zero or negative
+          }, 1000); // wait for 1 second
+        }
+
+        if (count > 0) {
+          document.getElementById("message").innerText = "Items added to cart!";
+          setTimeout(() => {
+            document.getElementById("message").innerText = "";
+          }, 1000); // clear message after 1 second
+        }
+      };
+      let count = 0;
+      function addToCartP() {
+        count = count + 1; // increase count
+        document.getElementById("cartCount").innerText =
+          "Items in cart: " + count;
+      }
+      function addToCartM() {
+        count = count - 1; // increase count
+        if (count < 0) {
+          count = 0; // prevent negative count
+        }
+        document.getElementById("cartCount").innerText =
+          "Items in cart: " + count;
+      }
+    </script>
+  </body>
 </html>
