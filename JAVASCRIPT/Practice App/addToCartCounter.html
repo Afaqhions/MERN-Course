@@ -151,14 +151,14 @@
           setTimeout(() => {
             document.getElementById("message").innerText = "";
             return; // exit if count is zero or negative
-          }, 1000); // wait for 1 second
+          }, 5000); // wait for 1 second
         }
 
         if (count > 0) {
           document.getElementById("message").innerText = "Items added to cart!";
           setTimeout(() => {
-            document.getElementById("message").innerText = "";
-          }, 1000); // clear message after 1 second
+            document.getElementById("message").innerText = "" ;
+          }, 5000); // clear message after 1 second
         }
       };
       let count = 0;
