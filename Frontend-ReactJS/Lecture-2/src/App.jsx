@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Props from "./components/Props";
 
 function App() {
   // State
@@ -24,6 +25,11 @@ function App() {
 
   return (
     <div>
+
+      {/* Props */}
+      <Props name="Ali" age={25} />
+
+
       <button onClick={callFun}>App</button>
       <button onClick={() => fruits("Apple")}>Apple</button>
       <button onClick={() => fruits("Orange")}>Orange</button>
