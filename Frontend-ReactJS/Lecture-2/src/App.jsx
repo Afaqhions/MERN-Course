@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Props from "./components/Props";
+import Navbar from "./components/Navbar";
 
 function App() {
   // State
@@ -13,8 +14,8 @@ function App() {
     alert("Hello, World!");
   };
 
-  let fruits = (name) => {
-    alert(name);
+  let fruits = (n) => {
+    alert(n);
   };
 
   // Counter App
@@ -27,7 +28,7 @@ function App() {
     <div>
 
       {/* Props */}
-      <Props name="Ali" age={25} />
+      <Props name="Ahmad" age={25} />
 
 
       <button onClick={callFun}>App</button>
@@ -60,7 +61,9 @@ function App() {
           >
             X
           </button>
-          <h3>Hello</h3>
+          <li>Home</li>
+          <li>About</li>
+          <li>Login</li>
         </>
       ) : (
         <button onClick={() => setOpen(true)}>|||</button>
