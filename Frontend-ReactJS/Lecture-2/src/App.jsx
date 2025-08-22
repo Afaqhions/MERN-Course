@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Props from "./components/Props";
-import Navbar from "./components/Navbar";
 
 function App() {
   // State
@@ -28,7 +27,7 @@ function App() {
     <div>
 
       {/* Props */}
-      <Props name="Ahmad" age={25} />
+      <Props name="Ahmad" age={45} />
 
 
       <button onClick={callFun}>App</button>
