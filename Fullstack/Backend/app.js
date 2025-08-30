@@ -6,6 +6,10 @@ const { default: Student } = require("./Models/students");
 
 const app = express();
 
+const cors = require('cors');
+
+app.use(cors())
+
 app.use(express.json());
 
 // Get all students
